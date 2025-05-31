@@ -17,6 +17,6 @@ function applyMiddlewares(app:Express) {
  console.log("Applying middlewares...")
  app.use(express.json())
  app.use(cors())
-  console.log("Middlewares just have been applied")
+  console.log("Middlewares have just been applied")
 }
 
