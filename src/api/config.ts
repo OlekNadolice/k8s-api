@@ -1,6 +1,6 @@
 import { Router } from "express";
 
 
-export function getRouter() {
+export function getRouter():Router {
     return  Router()
 }

@@ -2,10 +2,11 @@
   "name": "k8s-server",
   "version": "1.0.0",
   "description": "Kubernetes API - pet project",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "clean-build": "rm -rf dist && npx tsc",
+    "build": "tsup src/main.ts --format esm --target node18",
     "prettier-format": "",
     "prettier-check": "prettier . --check"
   },
@@ -23,6 +24,7 @@
     "@types/node": "^22.15.24",
     "prettier": "^3.5.3",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   }
 }
