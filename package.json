@@ -5,8 +5,8 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "clean-build": "rm -rf dist && npx tsc",
     "build": "tsup src/main.ts --format esm --target node18",
+    "build-start": "npm run build && node dist/main.js",
     "prettier-format": "",
     "prettier-check": "prettier . --check"
   },
@@ -16,7 +16,8 @@
   "dependencies": {
     "@kubernetes/client-node": "^1.3.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",

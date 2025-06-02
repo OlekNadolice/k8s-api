@@ -1,6 +1,7 @@
 import express, {Express, Router} from 'express';
 import cors from 'cors'
 import { clusterController } from './api/cluster-controller';
+import logger from './logger';
 
 bootstrapApplication()
 
@@ -11,28 +12,26 @@ function bootstrapApplication() {
   applyMiddlewares(app)
   injectControllers(app)
   app.listen(8000, () => {
-    console.log(`Process is running on port ${PORT}...` )
+    logger.info(`Process is running on port ${PORT}...` )
 })
 }
 
 
 function applyMiddlewares(app:Express) { 
- console.log("Applying middlewares...")
+ logger.info("Applying middlewares...")
  app.use(express.json())
  app.use(cors())
-  console.log("Middlewares have just been applied")
+ logger.info("Middlewares have just been applied")
 }
 
 function injectControllers(app:Express) {
-  const API_VERSION = 'api/v1'
-  app.use('', clusterController)
-  // const controllers = [clusterController]
-  // console.log('Injecting controllers...')
+  const API_VERSION = '/api/v1'
+  const controllers = [clusterController]
+  logger.info('Injecting controllers...')
+  controllers.forEach((controller:Router) => {
+    app.use(API_VERSION, controller)
+  })
 
-  // controllers.forEach((controller:Router) => {
-  //   app.use(API_VERSION, controller)
-  // })
-
-  console.log('Controllers have been injected')
+  logger.info('Controllers have been injected')
 
 }
