@@ -1,6 +1,6 @@
-import express, {Express, Router} from 'express';
+import express, {Express} from 'express';
 import cors from 'cors'
-import { clusterController } from './api/cluster-controller';
+import { controllers, ControllerConfig } from './api/config';
 import logger from './logger';
 
 bootstrapApplication()
@@ -25,13 +25,11 @@ function applyMiddlewares(app:Express) {
 }
 
 function injectControllers(app:Express) {
-  const API_VERSION = '/api/v1'
-  const controllers = [clusterController]
   logger.info('Injecting controllers...')
-  controllers.forEach((controller:Router) => {
-    app.use(API_VERSION, controller)
+   controllers.forEach((element:ControllerConfig) => {
+    const API_PATH = '/api/v1' + element.path
+    app.use(API_PATH, element.controller)
   })
-
   logger.info('Controllers have been injected')
 
 }
