@@ -1,6 +1,7 @@
 import express, {Express} from 'express';
 import cors from 'cors'
-import { controllers, ControllerConfig } from './api/config';
+import { controllers} from './api/config/config';
+import { ControllerConfig } from './api/config/types';
 import logger from './logger';
 
 bootstrapApplication()
@@ -11,7 +12,7 @@ function bootstrapApplication() {
   const PORT = parseInt(process.env.PORT as string) || 8000
   applyMiddlewares(app)
   injectControllers(app)
-  app.listen(8000, () => {
+  app.listen(PORT, () => {
     logger.info(`Process is running on port ${PORT}...` )
 })
 }

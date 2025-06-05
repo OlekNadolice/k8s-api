@@ -1,5 +1,6 @@
-import { getRouter } from "./config";
-import { HTTP_STATUSES } from "./config";
+import { getRouter } from "../config/config";
+import { HTTP_STATUSES } from "../config/types";
+
 
 export const clusterController = getRouter()
 
