@@ -3,6 +3,7 @@ import cors from 'cors'
 import { controllers} from './api/config/config';
 import { ControllerConfig } from './api/config/types';
 import logger from './logger';
+import morgan from 'morgan'
 
 bootstrapApplication()
 
@@ -22,6 +23,7 @@ function applyMiddlewares(app:Express) {
  logger.info("Applying middlewares...")
  app.use(express.json())
  app.use(cors())
+ app.use(morgan('dev'))
  logger.info("Middlewares have just been applied")
 }
 

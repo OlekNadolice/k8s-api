@@ -19,5 +19,5 @@ clusterController.get('', (req, res) => {
 
 // returns details about a cluster based on ID
 clusterController.get('/:clusterId', (req, res ) => {
-
+  
 })

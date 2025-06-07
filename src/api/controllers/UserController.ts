@@ -1,4 +1,4 @@
-import { getRouter } from "./config/config";
+import { getRouter } from "../config/config";
 
 export const userController = getRouter()
 

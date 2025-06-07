@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { clusterController } from "../controllers/ClusterController";
 import { userController } from "../controllers/UserController";
-import { authController } from "../controllers/AuthController";
+import  AuthController  from "../controllers/AuthController";
 
 export function getRouter():Router {
     return  Router()
@@ -12,7 +12,7 @@ export function getRouter():Router {
 export const controllers = [
     {path: "/clusters", controller: clusterController},
     {path: "/users", controller: userController},
-    {path: "/auth", controller: authController},
+    {path: "/auth", controller: new AuthController().router},
      
 ]
 
