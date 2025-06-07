@@ -16,7 +16,8 @@ const TYPES = {
 
 const container = new Container();
 
-container.bind<AuthService>(TYPES.AuthService).to(AuthService);
-container.bind<UserRepository>(TYPES.UserRepository).to(UserRepository);
+container.bind(AuthService).toSelf().inSingletonScope();
+// container.bind<AuthService>(TYPES.AuthService).to(AuthService);
+// container.bind<UserRepository>(TYPES.UserRepository).to(UserRepository);
 
 export { container, TYPES };

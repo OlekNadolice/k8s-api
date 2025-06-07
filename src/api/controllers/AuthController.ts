@@ -6,11 +6,11 @@ import { controller, httpPost, requestBody, response } from 'inversify-express-u
 
 @controller('/auth')
 class AuthController {
-  constructor(@inject(TYPES.AuthService) private authService: AuthService) {}
+  constructor(@inject(AuthService) private authService: AuthService) {}
 
   @httpPost('/register')
   public async registerUser(@requestBody() reqBody: any, @response() res: Response): Promise<void> {
-    await this.authService.registerUser;
+ 
     res.json('asd');
   }
 
