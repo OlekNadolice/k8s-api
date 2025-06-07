@@ -1,16 +1,6 @@
-import { controller } from "inversify-express-utils";
+import { controller } from 'inversify-express-utils';
 
+@controller('/')
+class ClusterController {}
 
-
-
-
-@controller("/")
-class ClusterController  {
-  
-
-  
-}
-
-export default ClusterController
-
-
+export default ClusterController;
