@@ -1,25 +1,13 @@
-
-import AuthService from "../../core/services/AuthService";
 import { Request, Response } from "express";
-import Controller from "./AbstractController";
-import { injectable } from "inversify";
+import { controller, httpGet } from "inversify-express-utils";
 
-@injectable()
- class AuthController extends Controller {
+
+
+
+@controller("/auth")
+ class AuthController {
    
-     private authService: AuthService;
-
-     public constructor(authService: AuthService) {
-        super()
-        this.authService = authService
-        
-    }
-
-     initRouter() {
-        this.router.post('/register', this.registerUser)
-        this.router.post('/login', this.loginUser)
-    }
-
+     @httpGet("/")
      public  async registerUser(req:Request, res:Response, next: Function): Promise<void>{
        res.json("asd")
     }

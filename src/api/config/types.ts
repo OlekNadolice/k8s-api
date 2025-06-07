@@ -1,8 +1,4 @@
-import { Router } from "express";
-export type ControllerConfig = {
-    path: string,
-    controller: Router
-}
+
 
 export enum HTTP_STATUSES  {
   OK = 200,
