@@ -1,19 +1,13 @@
-import { PrismaClient } from "@prisma/client";
-import { injectable } from "inversify";
+import { PrismaClient } from '@prisma/client';
+import { injectable } from 'inversify';
 
 @injectable()
 class UserRepository {
-  private prisma: PrismaClient
+  private prisma: PrismaClient;
 
-  public  constructor() {
-    this.prisma = new PrismaClient()
+  public constructor() {
+    this.prisma = new PrismaClient();
   }
-        
-    
-
 }
 
-
-
-
-export default UserRepository
+export default UserRepository;
