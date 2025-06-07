@@ -1,22 +1,24 @@
-import { getRouter } from "../config/config";
+
 import AuthService from "../../core/services/AuthService";
 import { Request, Response } from "express";
+import Controller from "./AbstractController";
 
 
- class AuthController {
-    public router = getRouter()
+ class AuthController extends Controller {
+   
     private authService = new AuthService()
 
-   public constructor() {
-        this.initRouter()
+     public constructor() {
+        super()
+        
     }
 
-   public  initRouter() {
-        this.router.post('', this.registerUser)
+     initRouter() {
+        this.router.post('/register', this.registerUser)
         this.router.post('/login', this.loginUser)
     }
 
-   public  async registerUser(req:Request, res:Response, next: Function): Promise<void>{
+     public  async registerUser(req:Request, res:Response, next: Function): Promise<void>{
        res.json("asd")
     }
 
