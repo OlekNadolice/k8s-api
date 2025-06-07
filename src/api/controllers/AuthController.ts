@@ -2,14 +2,16 @@
 import AuthService from "../../core/services/AuthService";
 import { Request, Response } from "express";
 import Controller from "./AbstractController";
+import { injectable } from "inversify";
 
-
+@injectable()
  class AuthController extends Controller {
    
-    private authService = new AuthService()
+     private authService: AuthService;
 
-     public constructor() {
+     public constructor(authService: AuthService) {
         super()
+        this.authService = authService
         
     }
 

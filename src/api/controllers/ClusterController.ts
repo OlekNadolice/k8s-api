@@ -1,8 +1,9 @@
+import { injectable } from "inversify"
 import Controller from "./AbstractController"
 
 
 
-
+@injectable()
 class ClusterController extends Controller {
    constructor() {
     super()
