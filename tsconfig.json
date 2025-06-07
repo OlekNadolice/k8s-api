@@ -9,7 +9,14 @@
     "esModuleInterop": true,      
     "skipLibCheck": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true          
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@controllers/*": ["api/controllers/*"],
+      "@services/*": ["core/services/*"],
+      "@repositories/*": ["infrastructure/repositories/*"],
+      "@k8s/*": ["k8s/*"]
+    }   
   },
   "include": ["src/**/*"],        
   "exclude": ["node_modules", "dist"]

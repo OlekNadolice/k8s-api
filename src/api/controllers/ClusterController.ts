@@ -1,18 +1,12 @@
-import { injectable } from "inversify"
-import Controller from "./AbstractController"
+import { controller } from "inversify-express-utils";
 
 
 
-@injectable()
-class ClusterController extends Controller {
-   constructor() {
-    super()
-   }
 
-   initRouter() {
-    this.router.get('', )
-    this.router.get(':clusterId', )
-   }
+
+@controller("/")
+class ClusterController  {
+  
 
   
 }
